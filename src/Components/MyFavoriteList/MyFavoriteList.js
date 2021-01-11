@@ -6,15 +6,7 @@ import Test from "./Test";
 export default function MyFavoriteList(props) {
   const { movieList, favoriteList, setFavoriteList } = props;
   const [starMovieList, setStarMovieList] = useState(false);
-  const saveNewFavoriteMovies = (arr) => {
-    localStorage.setItem("favorite", JSON.stringifyt(arr));
-    setStarMovieList(arr);
-  };
-  const aa = () => {
-    console.log(starMovieList);
-    if (!starMovieList) {
-    }
-  };
+
   const emptyList = () => {
     let flag = true;
     console.log("starMovieList", starMovieList);
@@ -26,7 +18,6 @@ export default function MyFavoriteList(props) {
         }
       }
       if (flag) {
-        console.log("aaaaaaaaa");
         return <div className="empty_list_msg">No Favorite Movies!</div>;
       }
     }
@@ -42,7 +33,7 @@ export default function MyFavoriteList(props) {
         setStarMovieList={setStarMovieList}
         setFavoriteList={setFavoriteList}
       />
-      {props.movieList ? aa() : <Loader />}
+      {props.movieList ? "" : <Loader />}
       {emptyList()}
     </div>
   );

@@ -31,6 +31,7 @@ export default function MovieBox(props) {
     props.setStarMovieList(temp);
     // window.location.reload();
   };
+  //STAR ICON
   //display full star if the movie is in the favorite or
   //display empty star if the movie is not.
   const favorite = (id) => {
@@ -56,24 +57,28 @@ export default function MovieBox(props) {
       );
     }
   };
-  const movies = props.movieList.results.map((e) => {
-    let x = e.episode_id;
-    console.log(x);
-    console.log(props.favoriteList);
-    if (
-      props.favoriteList.hasOwnProperty(e.episode_id) &&
-      props.favoriteList[x]
-    ) {
-      return (
-        <div key={e.episode_id} className="movieBox">
-          <div className="movie_img">{getMovieImg(e.episode_id)}</div>
-          <div className="text_title">{e.title}</div>
-          <div className="text_release_date">{e.release_date}</div>
-          {favorite(e.episode_id)}
-        </div>
-      );
-    }
-  });
+  const movies = () => {
+    props.movieList &&
+      props.movieList.results.map((e) => {
+        let x = e.episode_id;
+        console.log(x);
+        console.log(props.favoriteList);
+        console.log(props.movieList);
+        if (
+          props.favoriteList.hasOwnProperty(e.episode_id) &&
+          props.favoriteList[x]
+        ) {
+          return (
+            <div key={e.episode_id} className="movieBox">
+              <div className="movie_img">{getMovieImg(e.episode_id)}</div>
+              <div className="text_title">{e.title}</div>
+              <div className="text_release_date">{e.release_date}</div>
+              {favorite(e.episode_id)}
+            </div>
+          );
+        }
+      });
+  };
 
   return <div className="moviesWraper">{movies}</div>;
 }
