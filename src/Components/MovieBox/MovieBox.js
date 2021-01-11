@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./MovieBox.css";
-
+import { useHistory } from "react-router-dom";
 export default function MovieBox(props) {
+  const history = useHistory();
+
   //get the img from the public folder
   const getMovieImg = (id) => {
-    return <img src={process.env.PUBLIC_URL + `${id}.jpg`}></img>;
+    return (
+      <img
+        onClick={() => history.push(`/${id}`)}
+        src={process.env.PUBLIC_URL + `${id}.jpg`}
+      ></img>
+    );
   };
   //add the movie from the favorite list
   const addFromFavorite = (id) => {

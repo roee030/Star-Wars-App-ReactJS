@@ -1,15 +1,23 @@
 import React from "react";
 import "./Header.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 export default function Header(props) {
   const { favoriteList } = props;
-  console.log(favoriteList);
+  let history = useHistory();
+  const onClickLogo = () => {
+    history.push("/");
+  };
   let counter = 0;
   const getNumberOfFavoriteMovies = () => {
     if (favoriteList) {
       Object.keys(favoriteList).forEach((key) => {
         if (favoriteList[key] == true) {
           counter++;
-          console.log(counter);
         }
       });
       return <span> ( {counter} )</span>;
@@ -19,6 +27,7 @@ export default function Header(props) {
     <div className="header">
       <img
         className="header__img"
+        onClick={onClickLogo}
         src={process.env.PUBLIC_URL + `star-wars-logo.png`}
       ></img>
       <div className="header__favorite">

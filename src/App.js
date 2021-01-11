@@ -5,7 +5,12 @@ import Loader from "./Components/Loader/Loader";
 import MovieBox from "./Components/MovieBox/MovieBox";
 import Header from "./Components/Header/Header";
 import MovieDetails from "./Components/MovieDetails/MovieDetails";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom";
 function App() {
   const [movieList, setMovieList] = useState(false);
   const [favoriteList, setFavoriteList] = useState(false);
@@ -20,9 +25,9 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Header favoriteList={favoriteList} />
       <Data setMovieList={setMovieList} />
       <Router>
+        <Header favoriteList={favoriteList} />
         <Route exact path="/">
           {movieList ? (
             <MovieBox movieList={movieList} setFavoriteList={setFavoriteList} />
@@ -30,7 +35,7 @@ function App() {
             <Loader />
           )}
         </Route>
-        <Route path=":id">
+        <Route path="/:id">
           <MovieDetails movieList={movieList}></MovieDetails>
         </Route>
       </Router>
