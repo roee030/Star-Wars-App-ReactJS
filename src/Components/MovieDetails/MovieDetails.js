@@ -29,7 +29,7 @@ export default function MovieDetails(props) {
   };
   //get the img from the public folder
   const getMovieImg = (id) => {
-    return <img src={process.env.PUBLIC_URL + `${id}.jpg`}></img>;
+    return <img alt="" src={process.env.PUBLIC_URL + `${id}.jpg`}></img>;
   };
   return (
     <div className="movie_detail_wraper">

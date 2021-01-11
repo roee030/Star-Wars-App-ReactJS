@@ -25,12 +25,14 @@ export default function Header(props) {
     <div className="header">
       <img
         className="header__img"
+        alt=""
         onClick={onClickLogo}
         src={process.env.PUBLIC_URL + `star-wars-logo.png`}
       ></img>
       <div className="header__favorite" onClick={onClickFavorite}>
         My Favorites Movies {getNumberOfFavoriteMovies()}
         <img
+          alt=""
           className="header__img"
           src={process.env.PUBLIC_URL + `fullstar.png`}
         ></img>

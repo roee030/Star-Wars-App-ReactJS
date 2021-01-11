@@ -8,6 +8,7 @@ export default function MovieBox(props) {
   const getMovieImg = (id) => {
     return (
       <img
+        alt=""
         onClick={() => history.push(`/${id}`)}
         src={process.env.PUBLIC_URL + `${id}.jpg`}
       ></img>
@@ -40,6 +41,7 @@ export default function MovieBox(props) {
     if (localFavoriteData[id] == true) {
       return (
         <img
+          alt=""
           className="favorite"
           onClick={() => removeFromFavorite(id)}
           src={process.env.PUBLIC_URL + `fullstar.png`}
@@ -48,6 +50,7 @@ export default function MovieBox(props) {
     } else {
       return (
         <img
+          alt=""
           className="non__favorite"
           onClick={() => addFromFavorite(id)}
           src={process.env.PUBLIC_URL + `Empty_star.png`}
