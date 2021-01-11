@@ -4,26 +4,29 @@ import "./MyFavoriteList.css";
 import Loader from "../Loader/Loader";
 import Test from "./Test";
 export default function MyFavoriteList(props) {
-  const { movieList, favoriteList } = props;
+  const { movieList, favoriteList, setFavoriteList } = props;
   const [starMovieList, setStarMovieList] = useState(false);
   const saveNewFavoriteMovies = (arr) => {
     localStorage.setItem("favorite", JSON.stringifyt(arr));
     setStarMovieList(arr);
+  };
+  const aa = () => {
+    console.log(starMovieList);
+    if (!starMovieList) {
+    }
   };
   useEffect(() => {
     setStarMovieList(JSON.parse(localStorage.getItem("favorites")));
   }, []);
   return (
     <div className="favorite_list">
-      {props.movieList ? (
-        <Test
-          movieList={movieList}
-          favoriteList={favoriteList}
-          setStarMovieList={setStarMovieList}
-        />
-      ) : (
-        <Loader />
-      )}
+      <Test
+        movieList={movieList}
+        favoriteList={favoriteList}
+        setStarMovieList={setStarMovieList}
+        setFavoriteList={setFavoriteList}
+      />
+      {props.movieList ? aa() : <Loader />}
     </div>
   );
 }

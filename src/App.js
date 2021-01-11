@@ -38,6 +38,7 @@ function App() {
           <MyFavoriteList
             movieList={movieList}
             favoriteList={favoriteList}
+            setFavoriteList={setFavoriteList}
           ></MyFavoriteList>
         </Route>
       </Router>
