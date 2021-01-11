@@ -5,7 +5,11 @@ import Loader from "../Loader/Loader";
 import Test from "./Test";
 export default function MyFavoriteList(props) {
   const { movieList, favoriteList } = props;
-  const [, setStarMovieList] = useState(false);
+  const [starMovieList, setStarMovieList] = useState(false);
+  const saveNewFavoriteMovies = (arr) => {
+    localStorage.setItem("favorite", JSON.stringifyt(arr));
+    setStarMovieList(arr);
+  };
   useEffect(() => {
     setStarMovieList(JSON.parse(localStorage.getItem("favorites")));
   }, []);
