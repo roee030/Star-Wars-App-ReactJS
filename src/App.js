@@ -4,24 +4,36 @@ import Data from "./FetchData";
 import Loader from "./Components/Loader/Loader";
 import MovieBox from "./Components/MovieBox/MovieBox";
 import Header from "./Components/Header/Header";
+import MovieDetails from "./Components/MovieDetails/MovieDetails";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   const [movieList, setMovieList] = useState(false);
   const [favoriteList, setFavoriteList] = useState(false);
+
   useEffect(() => {
     let myFavoriteMovies = {};
     if (!localStorage.getItem("favorites")) {
       localStorage.setItem("favorites", JSON.stringify(myFavoriteMovies));
+    } else {
+      setFavoriteList(JSON.parse(localStorage.getItem("favorites")));
     }
   }, []);
   return (
     <div className="App">
-      <Header />
+      <Header favoriteList={favoriteList} />
       <Data setMovieList={setMovieList} />
-      {movieList ? (
-        <MovieBox movieList={movieList} setFavoriteList={setFavoriteList} />
-      ) : (
-        <Loader />
-      )}
+      <Router>
+        <Route exact path="/">
+          {movieList ? (
+            <MovieBox movieList={movieList} setFavoriteList={setFavoriteList} />
+          ) : (
+            <Loader />
+          )}
+        </Route>
+        <Route path=":id">
+          <MovieDetails movieList={movieList}></MovieDetails>
+        </Route>
+      </Router>
     </div>
   );
 }
