@@ -12,6 +12,29 @@
 }
 .movie_img {
   border: 5px solid rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.favorite,
+.non__favorite {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+@media screen and (max-width: 2200px) {
+  .movieBox {
+    display: flex;
+    padding: 20px;
+    width: 30%;
+    color: white;
+    margin: 36px;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 0 0 20%;
+
+    align-items: center;
+  }
 }
 @media screen and (max-width: 1200px) {
   .movieBox {

@@ -1,0 +1,18 @@
+.header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.header__img {
+  width: 80px;
+  height: 50px;
+  padding: 2px;
+  cursor: pointer;
+}
+.header__favorite {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
