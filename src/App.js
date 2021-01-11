@@ -39,7 +39,7 @@ function App() {
         <Route path="/:id">
           <MovieDetails movieList={movieList}></MovieDetails>
         </Route>
-        <Route path="/MyFavoriteList">
+        <Route exact path="/MyFavoriteList">
           <MyFavoriteList
             movieList={movieList}
             favoriteList={favoriteList}

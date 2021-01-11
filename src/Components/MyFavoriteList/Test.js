@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import "./MovieBox.css";
+import React, { useReducer, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import "./MyFavoriteList.css";
 export default function MovieBox(props) {
   const history = useHistory();
-
   //get the img from the public folder
   const getMovieImg = (id) => {
     return (
@@ -19,7 +18,7 @@ export default function MovieBox(props) {
     let temp = JSON.parse(localFavoriteData);
     temp[id] = true;
     localStorage.setItem("favorites", JSON.stringify(temp));
-    props.setFavoriteList(temp);
+    props.setStarMovieList(temp);
   };
   //delete the movie from the favorite list
   const removeFromFavorite = (id) => {
@@ -27,14 +26,12 @@ export default function MovieBox(props) {
     let temp = JSON.parse(localFavoriteData);
     temp[id] = false;
     localStorage.setItem("favorites", JSON.stringify(temp));
-    props.setFavoriteList(temp);
+    props.setStarMovieList(temp);
+    window.location.reload();
   };
   //display full star if the movie is in the favorite or
   //display empty star if the movie is not.
   const favorite = (id) => {
-    if (!localStorage.getItem("favorites")) {
-      localStorage.setItem("favorites", JSON.stringify({}));
-    }
     const localFavoriteData = JSON.parse(localStorage.getItem("favorites"));
 
     if (localFavoriteData[id] == true) {
@@ -56,14 +53,23 @@ export default function MovieBox(props) {
     }
   };
   const movies = props.movieList.results.map((e) => {
-    return (
-      <div key={e.episode_id} className="movieBox">
-        <div className="movie_img">{getMovieImg(e.episode_id)}</div>
-        <div className="text_title">{e.title}</div>
-        <div className="text_release_date">{e.release_date}</div>
-        {favorite(e.episode_id)}
-      </div>
-    );
+    let x = e.episode_id;
+    console.log(x);
+    console.log(props.favoriteList);
+    if (
+      props.favoriteList.hasOwnProperty(e.episode_id) &&
+      props.favoriteList[x]
+    ) {
+      return (
+        <div key={e.episode_id} className="movieBox">
+          <div className="movie_img">{getMovieImg(e.episode_id)}</div>
+          <div className="text_title">{e.title}</div>
+          <div className="text_release_date">{e.release_date}</div>
+          {favorite(e.episode_id)}
+        </div>
+      );
+    }
   });
+
   return <div className="moviesWraper">{movies}</div>;
 }

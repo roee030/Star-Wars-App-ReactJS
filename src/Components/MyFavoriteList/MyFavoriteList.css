@@ -1,0 +1,70 @@
+.favorite_list {
+}
+.moviesWraper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.text_title {
+  color: white;
+  font-weight: bold;
+}
+.text_release_date {
+  color: wheat;
+}
+.movie_img {
+  border: 5px solid rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.favorite,
+.non__favorite {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-color: transparent;
+}
+@media screen and (max-width: 2200px) {
+  .movieBox {
+    display: flex;
+    padding: 20px;
+    width: 30%;
+    color: white;
+    margin: 36px;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 0 0 20%;
+
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .movieBox {
+    display: flex;
+    padding: 20px;
+    width: 30%;
+    color: white;
+    margin: 36px;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 0 0 20%;
+
+    align-items: center;
+  }
+}
+@media screen and (max-width: 800px) {
+  .movieBox {
+    width: 300px;
+    display: inline-flex;
+    padding: 20px;
+    color: white;
+    margin: 6px auto;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    align-items: center;
+  }
+}
