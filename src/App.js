@@ -6,12 +6,7 @@ import MovieBox from "./Components/MovieBox/MovieBox";
 import Header from "./Components/Header/Header";
 import MovieDetails from "./Components/MovieDetails/MovieDetails";
 import MyFavoriteList from "./Components/MyFavoriteList/MyFavoriteList";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   const [movieList, setMovieList] = useState(false);
   const [favoriteList, setFavoriteList] = useState(false);

@@ -1,13 +1,11 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./MyFavoriteList.css";
 import Loader from "../Loader/Loader";
-import MovieBox from "../MovieBox/MovieBox";
 import Test from "./Test";
 export default function MyFavoriteList(props) {
   const { movieList, favoriteList } = props;
-  const [starMovieList, setStarMovieList] = useState(false);
-  const history = useHistory();
+  const [, setStarMovieList] = useState(false);
   useEffect(() => {
     setStarMovieList(JSON.parse(localStorage.getItem("favorites")));
   }, []);

@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import "./MyFavoriteList.css";
 export default function MovieBox(props) {
