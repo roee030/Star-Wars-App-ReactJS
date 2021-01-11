@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./MovieBox.css";
 
 export default function MovieBox(props) {
+  //get the img from the public folder
   const getMovieImg = (id) => {
     return <img src={process.env.PUBLIC_URL + `${id}.jpg`}></img>;
   };
+  //add the movie from the favorite list
   const addFromFavorite = (id) => {
     let localFavoriteData = localStorage.getItem("favorites");
     let temp = JSON.parse(localFavoriteData);
@@ -12,6 +14,7 @@ export default function MovieBox(props) {
     localStorage.setItem("favorites", JSON.stringify(temp));
     props.setFavoriteList(temp);
   };
+  //delete the movie from the favorite list
   const removeFromFavorite = (id) => {
     let localFavoriteData = localStorage.getItem("favorites");
     let temp = JSON.parse(localFavoriteData);
@@ -19,6 +22,8 @@ export default function MovieBox(props) {
     localStorage.setItem("favorites", JSON.stringify(temp));
     props.setFavoriteList(temp);
   };
+  //display full star if the movie is in the favorite or
+  //display empty star if the movie is not.
   const favorite = (id) => {
     const localFavoriteData = JSON.parse(localStorage.getItem("favorites"));
 
