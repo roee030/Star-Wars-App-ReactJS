@@ -17,9 +17,10 @@
 
 .favorite,
 .non__favorite {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+  background-color: transparent;
 }
 @media screen and (max-width: 2200px) {
   .movieBox {

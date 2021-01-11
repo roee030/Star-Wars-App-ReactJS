@@ -5,12 +5,28 @@ export default function MovieBox(props) {
   const getMovieImg = (id) => {
     return <img src={process.env.PUBLIC_URL + `${id}.jpg`}></img>;
   };
+  const addFromFavorite = (id) => {
+    let localFavoriteData = localStorage.getItem("favorites");
+    let temp = JSON.parse(localFavoriteData);
+    temp[id] = true;
+    localStorage.setItem("favorites", JSON.stringify(temp));
+    props.setFavoriteList(temp);
+  };
+  const removeFromFavorite = (id) => {
+    let localFavoriteData = localStorage.getItem("favorites");
+    let temp = JSON.parse(localFavoriteData);
+    temp[id] = false;
+    localStorage.setItem("favorites", JSON.stringify(temp));
+    props.setFavoriteList(temp);
+  };
   const favorite = (id) => {
-    const localFavoriteData = localStorage.getItem("favorites");
-    if (localFavoriteData) {
+    const localFavoriteData = JSON.parse(localStorage.getItem("favorites"));
+
+    if (localFavoriteData[id] == true) {
       return (
         <img
           className="favorite"
+          onClick={() => removeFromFavorite(id)}
           src={process.env.PUBLIC_URL + `fullstar.png`}
         ></img>
       );
@@ -18,6 +34,7 @@ export default function MovieBox(props) {
       return (
         <img
           className="non__favorite"
+          onClick={() => addFromFavorite(id)}
           src={process.env.PUBLIC_URL + `Empty_star.png`}
         ></img>
       );
