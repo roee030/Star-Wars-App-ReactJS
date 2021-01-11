@@ -15,6 +15,22 @@ export default function MyFavoriteList(props) {
     if (!starMovieList) {
     }
   };
+  const emptyList = () => {
+    let flag = true;
+    console.log("starMovieList", starMovieList);
+    if (starMovieList) {
+      for (let key in starMovieList) {
+        if (starMovieList[key] == true) {
+          console.log(starMovieList[key], key);
+          return false;
+        }
+      }
+      if (flag) {
+        console.log("aaaaaaaaa");
+        return <div className="empty_list_msg">No Favorite Movies!</div>;
+      }
+    }
+  };
   useEffect(() => {
     setStarMovieList(JSON.parse(localStorage.getItem("favorites")));
   }, []);
@@ -27,6 +43,7 @@ export default function MyFavoriteList(props) {
         setFavoriteList={setFavoriteList}
       />
       {props.movieList ? aa() : <Loader />}
+      {emptyList()}
     </div>
   );
 }

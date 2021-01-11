@@ -9,6 +9,15 @@
   color: white;
   font-weight: bold;
 }
+.empty_list_msg {
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  margin-top: 1em;
+  display: flex;
+
+  justify-content: center;
+}
 .text_release_date {
   color: wheat;
 }

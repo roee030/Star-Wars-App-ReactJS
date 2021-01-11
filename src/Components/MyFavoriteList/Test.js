@@ -28,6 +28,7 @@ export default function MovieBox(props) {
     temp[id] = false;
     localStorage.setItem("favorites", JSON.stringify(temp));
     props.setFavoriteList(temp);
+    props.setStarMovieList(temp);
     // window.location.reload();
   };
   //display full star if the movie is in the favorite or
