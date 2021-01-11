@@ -1,0 +1,7 @@
+.movie_detail_wraper {
+  color: white;
+  display: flex;
+}
+.movie_detail_wraper div {
+  margin-bottom: 10px;
+}

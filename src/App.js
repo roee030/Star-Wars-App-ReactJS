@@ -5,6 +5,7 @@ import Loader from "./Components/Loader/Loader";
 import MovieBox from "./Components/MovieBox/MovieBox";
 import Header from "./Components/Header/Header";
 import MovieDetails from "./Components/MovieDetails/MovieDetails";
+import MyFavoriteList from "./Components/MyFavoriteList/MyFavoriteList";
 import {
   BrowserRouter as Router,
   Route,
@@ -37,6 +38,12 @@ function App() {
         </Route>
         <Route path="/:id">
           <MovieDetails movieList={movieList}></MovieDetails>
+        </Route>
+        <Route path="/MyFavoriteList">
+          <MyFavoriteList
+            movieList={movieList}
+            favoriteList={favoriteList}
+          ></MyFavoriteList>
         </Route>
       </Router>
     </div>

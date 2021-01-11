@@ -1,16 +1,14 @@
 import React from "react";
 import "./Header.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  useHistory,
-} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 export default function Header(props) {
   const { favoriteList } = props;
   let history = useHistory();
   const onClickLogo = () => {
     history.push("/");
+  };
+  const onClickFavorite = () => {
+    history.push("/MyFavoriteList");
   };
   let counter = 0;
   const getNumberOfFavoriteMovies = () => {
@@ -30,7 +28,7 @@ export default function Header(props) {
         onClick={onClickLogo}
         src={process.env.PUBLIC_URL + `star-wars-logo.png`}
       ></img>
-      <div className="header__favorite">
+      <div className="header__favorite" onClick={onClickFavorite}>
         My Favorites Movies {getNumberOfFavoriteMovies()}
         <img
           className="header__img"

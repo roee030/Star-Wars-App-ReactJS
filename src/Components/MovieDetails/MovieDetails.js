@@ -1,5 +1,31 @@
 import React from "react";
 import "./MovieDetails.css";
+import { useHistory, useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 export default function MovieDetails(props) {
-  return <div>aa</div>;
+  const history = useHistory();
+  let { id } = useParams();
+  const getMovieDetails = (id) => {
+    const movieDetail = props.movieList.results.filter(
+      (e) => id == e.episode_id
+    );
+    return (
+      <div>
+        <div>{getMovieImg(id)}</div>
+        <div>Title: {movieDetail[0].title}</div>
+        <div>Producer: {movieDetail[0].producer}</div>
+        <div>Release date: {movieDetail[0].release_date}</div>
+        <div>Opening crawl: {movieDetail[0].opening_crawl}</div>
+      </div>
+    );
+  };
+  //get the img from the public folder
+  const getMovieImg = (id) => {
+    return <img src={process.env.PUBLIC_URL + `${id}.jpg`}></img>;
+  };
+  return (
+    <div className="movie_detail_wraper">
+      {props.movieList ? getMovieDetails(id) : <Loader />}
+    </div>
+  );
 }
