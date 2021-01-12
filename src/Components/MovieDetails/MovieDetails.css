@@ -17,6 +17,8 @@
     width: 400px;
     height: 500px;
     padding: 50px;
+
+    padding-bottom: 0;
     display: flex;
     margin: 0 auto;
     justify-content: center;
