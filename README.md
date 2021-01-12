@@ -8,8 +8,8 @@
 
   <h3 align="center">Star Wars Movies App</h3>
 
-1.	To install run: “npm install”
-2.	The are 3 routes:  
+1.	To install run: ```npm install``` and to start the project run: ```npm start```.
+2.	There are 3 routes:  
 2.1	“/” – home page.
 2.2	“/myFavoriteList” – list of all the movies that the user liked.
 2.3	“:/id” – for each movie there is a specific page for more details about the movie.
