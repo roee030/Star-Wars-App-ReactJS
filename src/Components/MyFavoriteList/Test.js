@@ -57,28 +57,27 @@ export default function MovieBox(props) {
       );
     }
   };
-  const movies = () => {
+  const movies =
     props.movieList &&
-      props.movieList.results.map((e) => {
-        let x = e.episode_id;
-        console.log(x);
-        console.log(props.favoriteList);
-        console.log(props.movieList);
-        if (
-          props.favoriteList.hasOwnProperty(e.episode_id) &&
-          props.favoriteList[x]
-        ) {
-          return (
-            <div key={e.episode_id} className="movieBox">
-              <div className="movie_img">{getMovieImg(e.episode_id)}</div>
-              <div className="text_title">{e.title}</div>
-              <div className="text_release_date">{e.release_date}</div>
-              {favorite(e.episode_id)}
-            </div>
-          );
-        }
-      });
-  };
+    props.movieList.results.map((e) => {
+      let x = e.episode_id;
+      console.log(x);
+      console.log(props.favoriteList);
+      console.log(props.movieList);
+      if (
+        props.favoriteList.hasOwnProperty(e.episode_id) &&
+        props.favoriteList[x]
+      ) {
+        return (
+          <div key={e.episode_id} className="movieBox">
+            <div className="movie_img">{getMovieImg(e.episode_id)}</div>
+            <div className="text_title">{e.title}</div>
+            <div className="text_release_date">{e.release_date}</div>
+            {favorite(e.episode_id)}
+          </div>
+        );
+      }
+    });
 
   return <div className="moviesWraper">{movies}</div>;
 }
