@@ -20,6 +20,9 @@ export default function MovieDetails(props) {
             <div>Producer: {movieDetail[0].producer}</div>
             <div>Release date: {movieDetail[0].release_date}</div>
             <div>Opening crawl: {movieDetail[0].opening_crawl}</div>
+            <i className="back_home" onClick={() => history.push("/")}>
+              Back &#8592;
+            </i>
           </>
         ) : (
           ""

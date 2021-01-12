@@ -1,7 +1,12 @@
 .movie_detail_wraper {
   color: white;
   display: flex;
+  padding-top: 50px;
+  flex-direction: column;
 }
 .movie_detail_wraper div {
   margin-bottom: 10px;
+}
+.back_home {
+  color: white;
 }
