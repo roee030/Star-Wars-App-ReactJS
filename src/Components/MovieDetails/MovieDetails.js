@@ -16,13 +16,15 @@ export default function MovieDetails(props) {
         {movieDetail[0] ? (
           <>
             <div>{getMovieImg(id)}</div>
-            <div>Title: {movieDetail[0].title}</div>
-            <div>Producer: {movieDetail[0].producer}</div>
-            <div>Release date: {movieDetail[0].release_date}</div>
-            <div>Opening crawl: {movieDetail[0].opening_crawl}</div>
-            <i className="back_home" onClick={() => history.push("/")}>
-              Back &#8592;
-            </i>
+            <div className="movie_details_info">
+              <div>Title: {movieDetail[0].title}</div>
+              <div>Producer: {movieDetail[0].producer}</div>
+              <div>Release date: {movieDetail[0].release_date}</div>
+              <div>Opening crawl: {movieDetail[0].opening_crawl}</div>
+              <i className="back_home" onClick={() => history.push("/")}>
+                Back &#8592;
+              </i>
+            </div>
           </>
         ) : (
           ""
@@ -32,7 +34,13 @@ export default function MovieDetails(props) {
   };
   //get the img from the public folder
   const getMovieImg = (id) => {
-    return <img alt="" src={process.env.PUBLIC_URL + `${id}.jpg`}></img>;
+    return (
+      <img
+        alt=""
+        className="movie_details_img"
+        src={process.env.PUBLIC_URL + `${id}.jpg`}
+      ></img>
+    );
   };
   return (
     <div className="movie_detail_wraper">

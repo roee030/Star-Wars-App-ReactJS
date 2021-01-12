@@ -100,7 +100,8 @@
   display: inline-block;
 }
 
-img {
+.star,
+.wars {
   width: 100%;
 }
 
