@@ -2,8 +2,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
+    <a href="https://github.com/roee030/Star-Wars-App-ReactJS">	
+     <img src="public/star-wars-logo.png" alt="Logo" width="80" height="80">
+  </a>
   
-    <img src="public/star-wars-logo.png" alt="Logo" width="80" height="80"></img>
 
 
   <h3 align="center">Star Wars Movies App</h3>
