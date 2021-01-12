@@ -4,7 +4,7 @@
 <p align="center">
   
     <img src="public/star-wars-logo.png" alt="Logo" width="80" height="80">
-  </a>
+
 
   <h3 align="center">Star Wars Movies App</h3>
 
